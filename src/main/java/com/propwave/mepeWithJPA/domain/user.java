@@ -50,4 +50,7 @@ public class user {
     @Column(updatable = false, nullable = false)
     @CreationTimestamp
     private Timestamp refreshAt;
+
+    @OneToOne(mappedBy = "user", fetch=FetchType.LAZY)
+    private social social;
 }

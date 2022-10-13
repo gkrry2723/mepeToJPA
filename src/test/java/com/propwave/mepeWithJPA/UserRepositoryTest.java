@@ -20,16 +20,18 @@ public class UserRepositoryTest {
 
     @Test
     @Transactional
-    @Rollback(false)
     public void testMember(){
         user user = new user();
         user.setId("jpaTest");
         user.setNickname("jpaTest");
         String savedId = userRepository.save(user);
-        com.propwave.mepeWithJPA.domain.user findMember = userRepository.find(savedId);
+        user findMember = userRepository.find(savedId);
+        user findMember2 = userRepository.find("gkrry2723");
 
         Assertions.assertThat(findMember.getId()).isEqualTo(user.getId());
 
         Assertions.assertThat(findMember).isEqualTo(user);
+
+        System.out.println(findMember2.getSocial());
     }
 }
