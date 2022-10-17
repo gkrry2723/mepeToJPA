@@ -1,7 +1,6 @@
 package com.propwave.mepeWithJPA.domain;
 
 import com.propwave.mepeWithJPA.repository.ProfileImgRepository;
-import com.propwave.mepeWithJPA.repository.SocialRepository;
 import com.propwave.mepeWithJPA.repository.UserRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -12,7 +11,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
