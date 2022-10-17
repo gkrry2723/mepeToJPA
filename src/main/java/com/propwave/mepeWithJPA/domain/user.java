@@ -9,6 +9,8 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -47,10 +49,13 @@ public class user {
     @ColumnDefault("0")
     private Integer todayFollows;
 
-    @Column(updatable = false, nullable = false)
+    @Column(nullable = false)
     @CreationTimestamp
     private Timestamp refreshAt;
 
     @OneToOne(mappedBy = "user", fetch=FetchType.LAZY)
     private social social;
+
+    @OneToMany(mappedBy = "user")
+    private List<profileImg> profileImgs = new ArrayList<>();
 }
