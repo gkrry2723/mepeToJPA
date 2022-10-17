@@ -18,8 +18,6 @@ public class wallet {
     @JoinColumn(name = "walletType")
     private walletType walletType;
 
-    private Integer index;
-
     @OneToMany(mappedBy = "wallet")
     private List<userWallet> userWallets = new ArrayList<>();
 

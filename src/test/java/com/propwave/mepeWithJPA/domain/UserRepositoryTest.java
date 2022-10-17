@@ -1,4 +1,4 @@
-package com.propwave.mepeWithJPA;
+package com.propwave.mepeWithJPA.domain;
 
 import com.propwave.mepeWithJPA.domain.user;
 import com.propwave.mepeWithJPA.repository.UserRepository;

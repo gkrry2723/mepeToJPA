@@ -1,4 +1,4 @@
-package com.propwave.mepeWithJPA;
+package com.propwave.mepeWithJPA.domain;
 
 import com.propwave.mepeWithJPA.domain.social;
 import com.propwave.mepeWithJPA.domain.user;
@@ -21,21 +21,6 @@ import java.util.Optional;
 public class SocialRepositoryTest {
     @Autowired
     private SocialRepository socialRepository;
-    @Autowired
-    private UserRepository userRepository;
-
-//    @Test
-//    @Transactional
-//    public void read() {
-//        List<social> socialList = socialRepository.findAll();
-//        System.out.println(socialList);
-//        user user = userRepository.find("gkrry2723");
-//        Optional<social> social = socialRepository.findById(user);
-//
-//        social.ifPresent(selectedWT -> {
-//            System.out.println(social);
-//        });
-//    }
 
     @Test
     @Transactional

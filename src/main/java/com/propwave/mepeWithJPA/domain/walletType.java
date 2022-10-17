@@ -14,6 +14,7 @@ public class walletType {
     private String name;
 
     private String icon;
+
     private Integer index;
 
     @OneToMany(mappedBy = "walletType")
