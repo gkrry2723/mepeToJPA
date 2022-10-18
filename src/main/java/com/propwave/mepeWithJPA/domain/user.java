@@ -58,4 +58,10 @@ public class user {
 
     @OneToMany(mappedBy = "user")
     private List<profileImg> profileImgs = new ArrayList<>();
+
+    @OneToMany(mappedBy="commentTo")
+    private List<comment> commentToList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "commentFrom")
+    private List<comment> commentFromList = new ArrayList<>();
 }
