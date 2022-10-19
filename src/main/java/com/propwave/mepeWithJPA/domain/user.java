@@ -64,4 +64,10 @@ public class user {
 
     @OneToMany(mappedBy = "commentFrom")
     private List<comment> commentFromList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "reqFrom")
+    private List<friendReq> reqFromList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "reqTo")
+    private List<friendReq> reqToList = new ArrayList<>();
 }
