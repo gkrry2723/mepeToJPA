@@ -16,14 +16,15 @@ import java.sql.Timestamp;
 @Setter
 @DynamicInsert
 @DynamicUpdate
-public class profileImg {
+@Table(name = "profileImg")
+public class ProfileImg {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user")
-    private user user;
+    private User user;
 
     private String imgUrl;
 

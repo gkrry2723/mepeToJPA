@@ -23,16 +23,16 @@ public class FriendReqTest {
     @Test
     @Transactional
     public void test(){
-        user user1 = userRepository.find("gkrry2723");
-        user user2 = userRepository.find("zoozoo_club3");
-        friendReq friendReq = new friendReq();
+        User user1 = userRepository.find("gkrry2723");
+        User user2 = userRepository.find("zoozoo_club3");
+        FriendReq friendReq = new FriendReq();
         friendReq.setReqFrom(user1);
         friendReq.setReqTo(user2);
         friendReq.setReqNickname("test");
 
         friendReqRepository.save(friendReq);
 
-        List<friendReq> friendReqList = friendReqRepository.findAll();
+        List<FriendReq> friendReqList = friendReqRepository.findAll();
 
         Assertions.assertThat(friendReqList.get(friendReqList.size()-1)).isEqualTo(friendReq);
     }

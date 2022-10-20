@@ -10,15 +10,16 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class wallet {
+@Table(name="wallet")
+public class Wallet {
     @Id
     private String address;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "walletType")
-    private walletType walletType;
+    private WalletType walletType;
 
     @OneToMany(mappedBy = "wallet")
-    private List<userWallet> userWallets = new ArrayList<>();
+    private List<UserWallet> UserWallets = new ArrayList<>();
 
 }

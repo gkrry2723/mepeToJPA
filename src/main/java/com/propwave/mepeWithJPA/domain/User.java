@@ -17,7 +17,8 @@ import java.util.List;
 @Setter
 @DynamicInsert
 @DynamicUpdate
-public class user {
+@Table(name="user")
+public class User {
     @Id
     private String id;
 
@@ -54,20 +55,20 @@ public class user {
     private Timestamp refreshAt;
 
     @OneToOne(mappedBy = "user", fetch=FetchType.LAZY)
-    private social social;
+    private Social social;
 
     @OneToMany(mappedBy = "user")
-    private List<profileImg> profileImgs = new ArrayList<>();
+    private List<ProfileImg> ProfileImgs = new ArrayList<>();
 
     @OneToMany(mappedBy="commentTo")
-    private List<comment> commentToList = new ArrayList<>();
+    private List<Comment> commentToList = new ArrayList<>();
 
     @OneToMany(mappedBy = "commentFrom")
-    private List<comment> commentFromList = new ArrayList<>();
+    private List<Comment> commentFromList = new ArrayList<>();
 
     @OneToMany(mappedBy = "reqFrom")
-    private List<friendReq> reqFromList = new ArrayList<>();
+    private List<FriendReq> reqFromList = new ArrayList<>();
 
     @OneToMany(mappedBy = "reqTo")
-    private List<friendReq> reqToList = new ArrayList<>();
+    private List<FriendReq> reqToList = new ArrayList<>();
 }

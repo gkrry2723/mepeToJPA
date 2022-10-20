@@ -15,18 +15,19 @@ import java.sql.Timestamp;
 @Setter
 @DynamicInsert
 @DynamicUpdate
-public class comment {
+@Table(name = "comment")
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
 
     @ManyToOne
     @JoinColumn(name="commentTo")
-    private user commentTo;
+    private User commentTo;
 
     @ManyToOne
     @JoinColumn(name="commentFrom")
-    private user commentFrom;
+    private User commentFrom;
 
     private String message;
 

@@ -23,14 +23,14 @@ public class FollowRepositoryTest {
     @Test
     @Transactional
     public void test(){
-        user user1 = userRepository.find("gkrry2723");
-        user user2 = userRepository.find("zoozoo_club3");
-        follow follow = new follow();
+        User user1 = userRepository.find("gkrry2723");
+        User user2 = userRepository.find("zoozoo_club3");
+        Follow follow = new Follow();
         follow.setUser(user1);
         follow.setFollowing(user2);
-        follow savedFollow = followRepository.save(follow);
+        Follow savedFollow = followRepository.save(follow);
 
-        List<follow> followList = followRepository.findAll();
+        List<Follow> followList = followRepository.findAll();
 
         Assertions.assertThat(followList.get(followList.size()-1)).isEqualTo(savedFollow);
 

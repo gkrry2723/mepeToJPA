@@ -2,7 +2,6 @@ package com.propwave.mepeWithJPA.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -15,27 +14,23 @@ import java.sql.Timestamp;
 @Setter
 @DynamicInsert
 @DynamicUpdate
-public class friendReq {
+@Table(name = "friend")
+public class Friend {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
 
     @ManyToOne
-    @JoinColumn(name="reqFrom")
-    private user reqFrom;
+    @JoinColumn(name="user")
+    private User user;
 
     @ManyToOne
-    @JoinColumn(name="reqTo")
-    private user reqTo;
+    @JoinColumn(name="friend")
+    private User friend;
 
-    private String reqNickname;
+    private String friendName;
 
-    @ColumnDefault("false")
-    private Boolean isAccepted;
-
-    @ColumnDefault("false")
-    private Boolean isRejected;
-
+    @Column(updatable = false, nullable = false)
     @CreationTimestamp
     private Timestamp createdAt;
 }

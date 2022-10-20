@@ -23,15 +23,15 @@ public class CommentTest {
     @Test
     @Transactional
     public void commentTest(){
-        user user1 = userRepository.find("gkrry2723");
-        user user2 = userRepository.find("zoozoo_club3");
-        comment comment = new comment();
+        User user1 = userRepository.find("gkrry2723");
+        User user2 = userRepository.find("zoozoo_club3");
+        Comment comment = new Comment();
         comment.setCommentTo(user1);
         comment.setCommentFrom(user2);
         comment.setMessage("test");
-        comment savedComment = commentRepository.save(comment);
+        Comment savedComment = commentRepository.save(comment);
 
-        List<comment> commentList = commentRepository.findAll();
+        List<Comment> commentList = commentRepository.findAll();
 
         Assertions.assertThat(commentList.get(commentList.size()-1)).isEqualTo(savedComment);
     }

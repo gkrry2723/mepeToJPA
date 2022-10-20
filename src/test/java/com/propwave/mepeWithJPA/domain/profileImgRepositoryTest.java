@@ -23,18 +23,18 @@ public class profileImgRepositoryTest {
     @Test
     @Transactional
     public void test(){
-        List<profileImg> profileImgList = profileImgRepository.findAll();
+        List<ProfileImg> profileImgList = profileImgRepository.findAll();
         System.out.println(profileImgList);
 
-        user user = userRepository.find("gkrry2723");
-        List<profileImg> profileImgfind1 = profileImgRepository.findByUser(user);
+        User user = userRepository.find("gkrry2723");
+        List<ProfileImg> profileImgfind1 = profileImgRepository.findByUser(user);
         System.out.println(profileImgfind1);
 
-        profileImg profileImg = new profileImg();
+        ProfileImg profileImg = new ProfileImg();
         profileImg.setUser(user);
         profileImg.setImgUrl("testUrl");
-        profileImg savedProfileImg = profileImgRepository.save(profileImg);
-        List<profileImg> profileImgfind2 = profileImgRepository.findByUser(user);
+        ProfileImg savedProfileImg = profileImgRepository.save(profileImg);
+        List<ProfileImg> profileImgfind2 = profileImgRepository.findByUser(user);
 
         Assertions.assertThat(profileImgfind2.get(profileImgfind2.size()-1)).isEqualTo(savedProfileImg);
     }

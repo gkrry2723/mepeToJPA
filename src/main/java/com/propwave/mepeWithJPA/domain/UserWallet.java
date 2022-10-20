@@ -15,18 +15,19 @@ import java.sql.Timestamp;
 @Setter
 @DynamicInsert
 @DynamicUpdate
-public class userWallet {
+@Table(name="userWallet")
+public class UserWallet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user")
-    private user user;
+    private User user;
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="walletAddress")
-    private wallet wallet;
+    private Wallet wallet;
 
     @ColumnDefault("default")
     private String chain;

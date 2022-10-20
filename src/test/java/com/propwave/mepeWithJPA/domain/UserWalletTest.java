@@ -3,7 +3,6 @@ package com.propwave.mepeWithJPA.domain;
 import com.propwave.mepeWithJPA.repository.UserRepository;
 import com.propwave.mepeWithJPA.repository.UserWalletRepository;
 import com.propwave.mepeWithJPA.repository.WalletRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +25,13 @@ public class UserWalletTest {
     @Test
     @Transactional
     public void testUserWallet(){
-        userWallet userWallet = new userWallet();
+        UserWallet userWallet = new UserWallet();
 
-        Optional<wallet> wallet = walletRepository.findById("0xf9F3Ea76C7Be559B4D4C9B3Ee2c3E05484A84420");
-        user user = userRepository.find("gkrry2723");
+        Optional<Wallet> wallet = walletRepository.findById("0xf9F3Ea76C7Be559B4D4C9B3Ee2c3E05484A84420");
+        User user = userRepository.find("gkrry2723");
         userWallet.setWallet(wallet.get());
         userWallet.setUser(user);
 
-        userWallet savedUserWallet = userWalletRepository.save(userWallet);
+        UserWallet savedUserWallet = userWalletRepository.save(userWallet);
     }
 }

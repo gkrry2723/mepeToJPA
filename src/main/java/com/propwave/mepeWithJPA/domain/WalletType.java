@@ -9,7 +9,8 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
-public class walletType {
+@Table(name="walletType")
+public class WalletType {
     @Id
     private String name;
 
@@ -18,5 +19,5 @@ public class walletType {
     private Integer index;
 
     @OneToMany(mappedBy = "walletType")
-    private List<wallet> wallets = new ArrayList<>();
+    private List<Wallet> Wallets = new ArrayList<>();
 }

@@ -23,20 +23,20 @@ public class FriendRepositoryTest {
     @Test
     @Transactional
     public void test(){
-        List<friend> friendList = friendRepository.findAll();
-        for(friend friend: friendList){
+        List<Friend> friendList = friendRepository.findAll();
+        for(Friend friend: friendList){
             System.out.println(friend.getIndex() + " " + friend.getFriendName());
         }
 
-        user user1 = userRepository.find("gkrry2723");
-        user user2 = userRepository.find("goyangtwo");
-        friend friend = new friend();
+        User user1 = userRepository.find("gkrry2723");
+        User user2 = userRepository.find("goyangtwo");
+        Friend friend = new Friend();
         friend.setUser(user1);
         friend.setFriend(user2);
         friend.setFriendName("test");
-        friend savedFriend = friendRepository.save(friend);
+        Friend savedFriend = friendRepository.save(friend);
 
-        List<friend> friendList2 = friendRepository.findAll();
+        List<Friend> friendList2 = friendRepository.findAll();
 
         Assertions.assertThat(savedFriend).isEqualTo(friendList2.get(friendList2.size()-1));
     }

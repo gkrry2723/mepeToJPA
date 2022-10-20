@@ -14,22 +14,20 @@ import java.sql.Timestamp;
 @Setter
 @DynamicInsert
 @DynamicUpdate
-public class friend {
+@Table(name = "follow")
+public class Follow {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
 
     @ManyToOne
     @JoinColumn(name="user")
-    private user user;
+    private User user;
 
     @ManyToOne
-    @JoinColumn(name="friend")
-    private user friend;
+    @JoinColumn(name="following")
+    private User following;
 
-    private String friendName;
-
-    @Column(updatable = false, nullable = false)
     @CreationTimestamp
     private Timestamp createdAt;
 }
